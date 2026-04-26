@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Barber & Beauty Connect Pro</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -32,8 +32,28 @@
             --radius-lg: 16px;
         }
         
-        body { background-color: #e0e0e0; display: flex; justify-content: center; color: var(--text-main); overflow: hidden; }
-        .app-container { width: 100%; max-width: 420px; height: 100vh; background-color: var(--background-gray); display: flex; flex-direction: column; position: relative; box-shadow: 0 0 20px rgba(0,0,0,0.2); overflow: hidden; }
+        /* AJUSTE PARA ANDROID NATIVO: Fundo 100% da tela, sem bordas ou sombras externas */
+        body { 
+            background-color: var(--background-gray); 
+            display: flex; 
+            justify-content: center; 
+            color: var(--text-main); 
+            overflow: hidden; 
+            width: 100vw;
+            height: 100dvh; /* dvh se adapta perfeitamente ao Android */
+        }
+
+        .app-container { 
+            width: 100%; 
+            max-width: 100%; /* Removido o limite de 420px */
+            height: 100%; 
+            background-color: var(--background-gray); 
+            display: flex; 
+            flex-direction: column; 
+            position: relative; 
+            box-shadow: none; /* Removido para colar nas bordas da tela */
+            overflow: hidden; 
+        }
         
         /* SISTEMA DE TELAS */
         .screen { display: none; flex: 1; overflow-y: auto; padding-bottom: 80px; flex-direction: column; }
